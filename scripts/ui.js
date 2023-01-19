@@ -9,6 +9,7 @@ export const onIndexCrewSuccess = (crews) => {
             <h3>${crew.name}</h3>
             <button data-id="${crew._id}" >Show Crew</button>
         `
+
         indexCrewContainer.appendChild(div)
     })
 }
@@ -21,7 +22,7 @@ export const onFailure = (error) => {
 }
 
 export const onCreateCrewSuccess = () => {
-    messageContainer.innerText = 'You have created a crew member!'
+    messageContainer.innerText = 'You have created a crew!! :)'
 }
 
 export const onShowCrewSuccess = (crew) => {
@@ -29,6 +30,22 @@ export const onShowCrewSuccess = (crew) => {
     div.innerHTML = `
         <h3>${crew.name}</h3>
         <p>${crew.station}</p>
+
+        <form data-id="${crew._id}">
+            <input type="text" name="name" value="${crew.name}" />
+            <input type="text" name="station" value="${crew.station}" />
+            <input type="submit" value="Update Crew" />
+        </form>
+
+        <button data-id="${crew._id}">Delete Crew</button>
     `
     showCrewContainer.appendChild(div)
+}
+
+export const onUpdateCrewSuccess = () => {
+    messageContainer.innerText = 'Update was successful :)'
+}
+
+export const onDeleteCrewSuccess = () => {
+    messageContainer.innerText = 'Delete was successful!'
 }
